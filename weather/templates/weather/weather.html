@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {% if weather_data %}
+        <h2>Weather in {{ weather_data.name }}</h2>
+        <p>Temperature: {{ weather_data.main.temp }}°C</p>
+        <p>Condition: {{ weather_data.weather.0.description }}</p>
+        <p>Humidity: {{ weather_data.main.humidity }}%</p>
+    {% elif weather_data == None %}
+        <p>City not found. Please try again.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Ignore sensitive files
+.env
+secrets.json
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore temporary files
+*.pyc
+__pycache__/
